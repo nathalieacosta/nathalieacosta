@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import React from "react";
 
 import { useState, useEffect } from "react";
 import "./index.css";
