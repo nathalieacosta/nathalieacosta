@@ -20,9 +20,9 @@ import { useInView } from "react-intersection-observer";
 import React from "react";
 import nathalie from "./assets/nathalie.png";
 import todo from "./assets/todo.png";
-
-import { useEffect } from "react";
 import "./index.css";
+import { useEffect } from "react";
+
 const App = () => {
   const AnimateOnView = ({ children }) => {
     const controls = useAnimation();
@@ -52,13 +52,7 @@ const App = () => {
   };
 
   return (
-    <Box
-      minH="100vh"
-      maxW="100%"
-      maxH="100%"
-      color="darkBrown"
-      bg="lightYellow"
-    >
+    <Box color="darkBrown" bg="lightYellow">
       <Box position="sticky" top="0" width="100%" bg="lightYellow" p="5">
         <Center>
           <HStack>
