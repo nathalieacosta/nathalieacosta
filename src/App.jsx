@@ -2,31 +2,28 @@ import {
   Box,
   Flex,
   Heading,
-  Button,
-  VStack,
+  Avatar,
   HStack,
   Link,
   Center,
   Text,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
   Badge,
   Tooltip,
+  Card,
+  CardBody,
+  CardHeader,
+  Image,
+  Stack,
 } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from "react";
+import nathalie from "./assets/nathalie.png";
+import todo from "./assets/todo.png";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./index.css";
 const App = () => {
-  const [isSnowing, setIsSnowing] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const AnimateOnView = ({ children }) => {
     const controls = useAnimation();
     const { ref, inView } = useInView();
@@ -65,107 +62,108 @@ const App = () => {
       <Box position="sticky" top="0" width="100%" bg="lightYellow" p="5">
         <Center>
           <HStack>
-            <Link href="#">Home</Link>
-            <Link href="#about">About</Link>
-            <Link href="#skills">Skills</Link>
+            <Link fontSize="2xl" href="#">
+              Home
+            </Link>
+            <Link fontSize="2xl" href="#about">
+              About
+            </Link>
+            <Link fontSize="2xl" href="#skills">
+              Skills
+            </Link>
+            <Link fontSize="2xl" href="#projects">
+              Projects
+            </Link>
+            <Link fontSize="2xl" href="#contact">
+              Contact
+            </Link>
           </HStack>
         </Center>
       </Box>
-      <Flex bg="lightYellow" padding="50px" minH="45vh">
-        <VStack spacing="8">
-          <Heading
-            width={{ base: "100%", md: "80%" }}
-            fontSize={{ base: "2xl", md: "4xl" }}
-          >
-            <AnimateOnView>
-              I'm Nathalie, a student at{" "}
-              <Text as="span" color="yellowDark">
-                Harvard
-              </Text>{" "}
-              who loves to develop{" "}
-              <Text as="span" color="yellowDark">
-                engaging and user-friendly software
-              </Text>{" "}
-            </AnimateOnView>
-          </Heading>
+      <Flex
+        bg="lightYellow"
+        padding="50px 100px"
+        direction="column"
+        justify="center"
+        align="center"
+      >
+        <Heading
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "2xl", md: "4xl" }}
+          marginY="10px"
+        >
+          <AnimateOnView>
+            I'm Nathalie, a student at{" "}
+            <Text as="span" color="yellowDark">
+              Harvard
+            </Text>{" "}
+            who loves to develop{" "}
+            <Text as="span" color="yellowDark">
+              engaging and user-friendly software
+            </Text>{" "}
+          </AnimateOnView>
+        </Heading>
 
-          <Text
-            width={{ base: "100%", md: "80%" }}
-            fontSize={{ base: "lg", md: "2xl" }}
-          >
-            Latina and first-gen are labels I wear proudly
-          </Text>
-          <HStack>
-            <Text fontSize="3xl">🐝</Text>
-            <Text fontSize="3xl">🐝</Text>
-            <Text fontSize="3xl">🐝</Text>
-            <Text fontSize="3xl">🐝</Text>
-            <Text fontSize="3xl">🐝</Text>
-          </HStack>
-        </VStack>
+        <Text
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "lg", md: "2xl" }}
+          marginY="10px"
+        >
+          Latina and first-gen are labels I wear proudly
+        </Text>
+        <HStack marginY="10px">
+          <Text fontSize="3xl">🐝</Text>
+          <Text fontSize="3xl">🐝</Text>
+          <Text fontSize="3xl">🐝</Text>
+          <Text fontSize="3xl">🐝</Text>
+          <Text fontSize="3xl">🐝</Text>
+        </HStack>
       </Flex>
       <Flex
         bg="darkYellow"
         id="about"
-        padding="50px"
-        minH="45vh"
+        padding="50px 100px"
         align="center"
+        direction="column"
+        justify="center"
       >
-        <VStack spacing="8">
-          <Heading
-            width={{ base: "100%", md: "80%" }}
-            fontSize={{ base: "2xl", md: "4xl" }}
-          >
-            <AnimateOnView>A little about me</AnimateOnView>
-          </Heading>
-          <Text
-            width={{ base: "100%", md: "80%" }}
-            fontSize={{ base: "lg", md: "2xl" }}
-          >
-            I love bringing ideas and products to life. I'm a child of Cuban
-            immigrants and am passionate about education and social justice. I
-            love nature, gaming, and learning new things.
-          </Text>
-          <HStack>
-            <Button
-              bg="darkestYellow"
-              _hover={{ bg: "lightYellow" }}
-              onClick={onOpen}
-            >
-              Contact Me
-            </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent marginTop="100px" bg="lightYellow">
-                <ModalHeader>Contact Me</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody margin="10px">
-                  <Text fontSize="lg">Email: nathaliesacosta@gmail.com </Text>
-                  <Text fontSize="lg">Phone: (+1)786-260-9890 </Text>
-                  <Text fontSize="lg">LinkedIn: Nathalie Acosta</Text>
-                </ModalBody>
-              </ModalContent>
-            </Modal>
-          </HStack>
-        </VStack>
+        <Heading
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "2xl", md: "4xl" }}
+          marginY="10px"
+        >
+          <AnimateOnView>A little about me</AnimateOnView>
+        </Heading>
+        <Text
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "lg", md: "2xl" }}
+          marginY="10px"
+        >
+          I love bringing ideas and products to life. I'm a child of Cuban
+          immigrants and am passionate about education and social justice. I
+          love nature, gaming, and learning new things.
+        </Text>
+        <Avatar size="xl" src={nathalie} alt="Nathalie" marginY="10px" />
       </Flex>
       <Flex
         bg="lightYellow"
-        id="about"
-        padding="50px"
-        minH="45vh"
+        id="skills"
+        padding="50px 100px"
         align="center"
+        justify="center"
+        direction="column"
       >
-        <VStack spacing="8">
-          <Heading
-            width={{ base: "100%", md: "80%" }}
-            fontSize={{ base: "2xl", md: "4xl" }}
-          >
-            {" "}
-            <AnimateOnView>Some of my skills (hover for more!)</AnimateOnView>
-          </Heading>
+        <Heading
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "2xl", md: "4xl" }}
+          marginY="10px"
+        >
+          {" "}
+          <AnimateOnView>Some of my skills (hover for more!)</AnimateOnView>
+        </Heading>
 
-          <Flex wrap="wrap" justify="center" align="center">
+        <Box alignItems="center">
+          <Box>
             <Tooltip label="Advanced">
               <Badge>HTML5/CSS3</Badge>
             </Tooltip>
@@ -175,21 +173,30 @@ const App = () => {
             <Tooltip label="Advanced">
               <Badge>React + Next.js</Badge>
             </Tooltip>
+          </Box>
+          <Box>
             <Tooltip label="Advanced, I use Express">
               <Badge>Node.js</Badge>
             </Tooltip>
             <Tooltip label="Proficient">
-              <Badge>C/C++</Badge>
+              <Badge>C++</Badge>
             </Tooltip>
             <Tooltip label="Proficient">
               <Badge>SQL</Badge>
             </Tooltip>
+          </Box>
+          <Box>
             <Tooltip label="Familiar">
               <Badge>Python</Badge>
             </Tooltip>
             <Tooltip label="Familiar">
               <Badge>Git</Badge>
             </Tooltip>
+            <Tooltip label="Familliar">
+              <Badge>C</Badge>
+            </Tooltip>
+          </Box>
+          <Box>
             <Tooltip label="Native">
               <Badge>English</Badge>
             </Tooltip>
@@ -199,8 +206,87 @@ const App = () => {
             <Tooltip label="Proficient">
               <Badge>French</Badge>
             </Tooltip>
-          </Flex>
-        </VStack>
+          </Box>
+        </Box>
+      </Flex>
+      <Flex
+        bg="darkYellow"
+        id="projects"
+        padding="50px 100px"
+        align="center"
+        justify="center"
+        direction="column"
+      >
+        <Heading
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "2xl", md: "4xl" }}
+          marginY="10px"
+        >
+          <AnimateOnView>Projects I'm working on</AnimateOnView>
+        </Heading>
+        <HStack marginY="10px">
+          <Card
+            bg="lightestYellow"
+            borderRadius="10px"
+            color="darkBrown"
+            maxW="sm"
+            align="center"
+            direction="column"
+            justify="center"
+          >
+            <CardHeader fontSize="3xl" fontWeight="bold">
+              Node.js Tutorial
+            </CardHeader>
+            <CardBody>
+              <Image
+                borderRadius="lg"
+                src={todo}
+                alt="Todo"
+                width="350px"
+                align="center"
+              ></Image>
+              <Stack mt="6" spacing="3">
+                <Text>
+                  I created a tutorial on how to create a todo app using
+                  Node.js, Express, and SQLite. This was for a workshop I did
+                  for CS50 and was attended by students across the world!
+                </Text>
+                <Link href="https://github.com/nathalieacosta/todo-final">
+                  Github
+                </Link>
+              </Stack>
+            </CardBody>
+          </Card>
+        </HStack>
+      </Flex>
+      <Flex
+        bg="lightYellow"
+        id="contact"
+        padding="50px 100px"
+        align="center"
+        justify="center"
+        direction="column"
+      >
+        <Heading
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "2xl", md: "4xl" }}
+          marginY="10px"
+        >
+          <AnimateOnView>Contact me</AnimateOnView>
+        </Heading>
+        <Text
+          width={{ base: "100%", md: "80%" }}
+          fontSize={{ base: "lg", md: "2xl" }}
+          marginY="10px"
+        >
+          I'm always open to new opportunities and collaborations! Feel free to
+          reach out to me with{" "}
+          <Link href="mailto:nathaliesacosta@gmail.com">email</Link> or on{" "}
+          <Link href="https://www.linkedin.com/in/nathalieacosta/">
+            LinkedIn
+          </Link>
+          .
+        </Text>
       </Flex>
     </Box>
   );

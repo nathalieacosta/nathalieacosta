@@ -8,18 +8,6 @@ import "@fontsource/merriweather";
 
 const theme = extendTheme({
   components: {
-    Link: {
-      baseStyle: {
-        color: "darkBrown",
-        fontWeight: "bold",
-        fontSize: "xl",
-        transition: "0.2s",
-        _hover: {
-          textDecoration: "none",
-          fontSize: "2xl",
-        },
-      },
-    },
     Badge: {
       baseStyle: {
         color: "darkBrown",
